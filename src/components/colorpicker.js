@@ -91,10 +91,10 @@ const ColorPicker = ({value, colors, onChange}) => {
             setColorsCustomToggle((state) => !state);
             setColorsListToggle(false);
           }}>
-          <div
+          <span
             className='color-preview'
             style={{ backgroundColor: `#${localValue}` }}>
-          </div>
+          </span>
         </button>
         <button
           className='btn-square btn-custom-colors'
