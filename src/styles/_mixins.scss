@@ -1,0 +1,14 @@
+@mixin dropdown-triangle($pxFromRight) {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: $pxFromRight;
+  transform: translate(-50%, 0);
+  border: 8px solid transparent;
+  border-bottom: 8px solid $white;
+}
+
+@mixin slider-thumb {
+  &::-webkit-slider-thumb {@content}
+  &::-moz-range-thumb {@content}
+}

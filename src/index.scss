@@ -1,0 +1,226 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: background-color .3s ease-out;
+}
+
+.color-picker {
+  position: relative;
+  border: 1px solid $light-grey;
+  background: $white;
+  box-shadow: 0 0 13px 31px rgba(255, 255, 255, .55);
+
+  &-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &-value{
+    padding: 0 8px;
+    color: $grey;
+    text-transform: uppercase;
+    min-width: 175px;
+  }
+
+  .btn-square {
+    border-left: 1px solid $light-grey;
+    position: relative;
+  }
+
+  .color-preview {
+    width: 20px;
+    height: 20px;
+    transition: background-color .3s ease-out;
+  }
+
+  .error {
+    color: $red;
+    font-size: 12px;
+    position: absolute;
+    background: $white;
+    padding: 2px 4px;
+    left: 0;
+  }
+}
+
+.btn-square {
+  padding: 8px;
+  border: 0;
+  background: none;
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+}
+
+.btn-custom-colors {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid transparent;
+    border-top: 8px solid $light-brown;
+    border-bottom: 0;
+  }
+}
+
+.colors-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background: $white;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 15px);
+  min-width: 175px;
+  box-shadow: 4px 4px 31px 2px $shadow-color;
+
+  &:after {
+    @include dropdown-triangle(2px)
+  }
+
+  > li {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color .3s ease-out, color .3s ease-out;
+    &:hover {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+
+  .color-name {
+    text-transform: uppercase;
+    margin: 0 15px 0 0;
+  }
+}
+
+.btns-holder {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .btn {
+    margin: 0 0 0 7px;
+  }
+}
+
+.btn {
+  padding: 5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  min-width: 75px;
+  cursor: pointer;
+  transition: opacity .3s ease-out;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.btn-primary {
+  color: $white;
+  background-color: $green;
+}
+
+.btn-secondary {
+  background-color: $grey;
+  color: $white;
+}
+
+.custom-colors-wrap {
+  padding: 7px;
+  box-shadow: 4px 4px 31px 2px $shadow-color;
+}
+
+.color-range-block {
+  display: flex;
+  align-items: center;
+  margin: 0 0 16px;
+
+  .key {
+    text-transform: uppercase;
+  }
+}
+
+.color-range {
+  display: flex;
+  margin: 0 0 0 7px;
+  position: relative;
+  width: 100%;
+
+  .slider {
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: #388e3c;
+    height: 2px;
+    outline: none;
+    transition: .3s;
+
+    &-r {
+      background: $red-gradient;
+    }
+
+    &-g {
+      background: $green-gradient;
+    }
+
+    &-b {
+      background: $black-gradient;
+    }
+
+    @include slider-thumb {
+      cursor: ew-resize;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: $light-brown;
+    }
+  }
+}
+
+.custom-colors-wrap {
+  position: absolute;
+  background: $white;
+  min-width: 225px;
+  top: calc(100% + 15px);
+  right: 0;
+
+  &:after {
+    @include dropdown-triangle(39px)
+  }
+}
