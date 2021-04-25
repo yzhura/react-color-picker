@@ -6,16 +6,20 @@ function App() {
   const [value, setValue] = useState('#fbc02d');
 
   const [colors] = useState([
-    { name: 'red',
+    {
+      name: 'red',
       hex: 'd32f2f'
     },
-    { name: 'yellow',
+    {
+      name: 'yellow',
       hex: 'fbc02d'
     },
-    { name: 'green',
+    {
+      name: 'green',
       hex: '388e3c'
     },
-    { name: 'blue',
+    {
+      name: 'blue',
       hex: '1976d2'
     }
   ]);
